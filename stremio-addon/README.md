@@ -216,6 +216,36 @@ The cache is in-memory. Restarting the server clears all cached data.
 ```
 stremio-addon/
 ├── lib/
+│   ├── config.py       # In-memory cache setup, ADDON_PATH
+│   ├── logger.py       # Standard Python logging wrapper
+│   ├── providers.py    # Provider and channel fetching with caching
+│   ├── crypto_utils.py # AES-CBC decryption for providers and M3U content
+│   ├── m3u_parser.py   # M3U playlist parser (PlaylistItem)
+│   ├── remote_config.py # Firebase Remote Config fetcher
+│   └── req.py          # HTTP fetch utility
+├── handlers/
+│   ├── catalog.py      # Stremio catalog handler
+│   ├── meta.py         # Stremio meta handler
+│   └── stream.py       # Stremio stream handler + proxy URL builder
+├── tests/
+│   └── test_proxy_rewrite.py # Proxy URL rewriting tests
+├── resources/          # Written at startup from env vars (git-ignored)
+│   ├── secret1.txt
+│   ├── secret2.txt
+│   └── cricfy_properties.json
+├── app.py              # FastAPI application and all routes
+├── id_utils.py         # Stable channel ID generation and parsing
+├── main.py             # Entry point: env setup + uvicorn start
+├── manifest.py         # Stremio manifest definition
+├── progress.md         # Development notes and in-progress work
+├── pyproject.toml
+├── requirements.txt
+├── Dockerfile
+├── .env.example
+└── README.md
+```
+stremio-addon/
+├── lib/
 │   ├── config.py          # In-memory cache setup, ADDON_PATH
 │   ├── logger.py          # Standard Python logging wrapper
 │   ├── providers.py       # Provider and channel fetching with caching

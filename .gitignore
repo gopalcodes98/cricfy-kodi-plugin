@@ -10,3 +10,6 @@ wheels/
 .venv
 .env
 stremio-addon/resources/*
+stremio-addon/graphify-out/*
+stremio-addon/.agent/*
+stremio-addon/.venv/*
